@@ -1,0 +1,161 @@
+---
+title: Política de privacidad — MoneyTracker
+lang: es
+---
+
+# Política de privacidad — MoneyTracker
+
+**Responsable:** Didier Cruz
+**Aplicación:** MoneyTracker (`com.melo.moneytracker`)
+**Última actualización:** 13 de noviembre de 2026 (versión 1.6 de la app)
+
+---
+
+## Resumen
+
+**MoneyTracker no recopila, transmite ni comparte ningún dato personal.**
+
+Toda la información que registras —cuentas, movimientos, categorías, metas,
+presupuestos, compras a cuotas, préstamos y fotos de comprobantes— se guarda **únicamente en
+el almacenamiento privado de tu dispositivo**. No existe ningún servidor al que enviarla: la aplicación no tiene
+cuentas de usuario, no requiere registro, no se conecta a internet y no incluye
+publicidad ni herramientas de analítica.
+
+## Qué datos se recopilan
+
+Ninguno.
+
+La aplicación **no pide acceso a internet, ubicación, contactos, cámara,
+micrófono, almacenamiento externo ni identificadores del dispositivo**. Lo único
+que declara es el permiso de **notificaciones** (para los recordatorios de pago
+que tú activas) y el de **recibir el aviso de arranque del teléfono** (para que
+esos recordatorios sigan programados tras reiniciarlo). Los recordatorios son
+**locales**: se crean y se muestran en tu teléfono, sin internet, y ningún dato
+sale del dispositivo. El permiso de notificaciones se pide solo cuando tiene
+sentido y puedes negarlo; la app funciona igual. Puedes comprobarlo tú mismo en
+la sección «Permisos de la aplicación» dentro de Google Play, antes incluso de
+instalarla.
+
+Cuando adjuntas la foto de un comprobante, la aplicación no usa la cámara
+directamente: le pide a Android que abra **tu aplicación de cámara** o **el
+selector de fotos del sistema**, y solo recibe la foto que tú tomas o eliges.
+Lo mismo ocurre con el respaldo: el archivo se guarda o se abre a través del
+**selector de archivos de Android**, en la ubicación que tú escoges. En ningún
+caso la aplicación puede ver tus demás fotos ni tus demás archivos.
+
+## Qué datos guarda la aplicación, y dónde
+
+Los datos que tú introduces se almacenan en tres lugares, **todos privados de la
+aplicación y dentro de tu propio dispositivo**:
+
+| Qué | Dónde | Contenido |
+|---|---|---|
+| Tus finanzas | Base de datos local `moneytracker.db` | Cuentas, saldos iniciales, movimientos, categorías, metas, presupuestos, compras a cuotas, préstamos (tasa, cuotas, seguros y cargos), la fecha de tu último respaldo y tus ajustes de recordatorios (hora y tipos de aviso) |
+| Recordatorios programados | Almacenamiento privado de la app | La fecha y el texto de los próximos avisos, para volver a programarlos si reinicias el teléfono |
+| Fotos de comprobantes | Carpeta privada de la app | Las fotos que adjuntas a tus movimientos (hasta 6 por movimiento) |
+| Tu preferencia de idioma | Almacenamiento local de la app | Únicamente si elegiste español o inglés |
+
+Ese almacenamiento es privado: el sistema operativo Android impide que otras
+aplicaciones accedan a él. Nadie más puede leerlo, y nosotros tampoco — no
+tenemos forma técnica de hacerlo, porque esa información nunca sale de tu
+teléfono.
+
+La aplicación tiene además desactivada la copia de seguridad automática de
+Android (`allowBackup="false"`), de modo que tus datos financieros tampoco se
+copian a los servidores de Google.
+
+## Respaldo de tus datos
+
+Desde la versión 1.2 puedes crear un **archivo de respaldo** con todos tus datos y
+tus fotos de comprobantes. Funciona así:
+
+- **Solo se crea cuando tú lo pides**, desde la pantalla Respaldo. La aplicación
+  nunca hace respaldos automáticos ni los envía a ningún sitio por su cuenta.
+- **Tú decides adónde va.** Puedes guardarlo en una carpeta de tu teléfono o
+  compartirlo con la aplicación que elijas (por ejemplo, tu correo o tu servicio
+  de almacenamiento en la nube). A partir de ese momento, el archivo queda sujeto
+  a las condiciones y la política de privacidad de **esa** aplicación o servicio,
+  no de MoneyTracker. Nosotros no recibimos ninguna copia.
+- **Contraseña opcional.** Si activas «Proteger con contraseña», el archivo se
+  cifra con AES-256 y no se puede abrir sin ella. La contraseña no se guarda en
+  ningún lugar: si la olvidas, **nadie puede recuperar ese respaldo**, tampoco
+  nosotros. Si no activas la contraseña, cualquiera que obtenga el archivo podrá
+  leer su contenido, así que guárdalo en un lugar de confianza.
+- **Restaurar** reemplaza los datos de la aplicación por los del archivo que
+  elijas. El archivo se lee en tu teléfono; nada se envía a ningún servidor.
+
+## Con quién se comparten tus datos
+
+Con nadie. No hay terceros involucrados. La única forma de que tus datos salgan
+de la aplicación es que tú compartas un archivo de respaldo, como se explica
+arriba.
+
+MoneyTracker no incorpora servicios de analítica, informes de errores,
+publicidad, redes sociales ni ninguna otra biblioteca externa que recopile
+información. No se realiza ninguna transferencia internacional de datos, porque
+no se realiza ninguna transferencia en absoluto.
+
+## Cuánto tiempo se conservan tus datos, y cómo eliminarlos
+
+Tus datos permanecen en tu dispositivo mientras tú quieras. Como no existe copia
+remota en nuestro poder, tienes control completo sobre ellos:
+
+- **Borrar un dato concreto:** elimínalo desde la propia aplicación.
+- **Borrar todo de una vez:** Ajustes de Android → Aplicaciones → MoneyTracker →
+  Almacenamiento → *Borrar datos*.
+- **Desinstalar la aplicación:** Android elimina automáticamente toda la
+  información asociada.
+
+Cualquiera de las tres opciones es definitiva e irreversible. **No conservamos
+ninguna copia**, así que no hay nada que solicitarnos para que lo borremos.
+
+Los **archivos de respaldo** que hayas creado no forman parte de la aplicación:
+están donde tú los guardaste o enviaste, y desinstalar la aplicación **no los
+borra**. Si quieres eliminarlos, hazlo desde esa carpeta o ese servicio.
+
+## Advertencia importante sobre tus datos
+
+Precisamente porque nada se envía a la nube por sí solo, **si pierdes el
+dispositivo, lo restableces de fábrica o desinstalas la app, solo podrás
+recuperar tu información si antes creaste un archivo de respaldo y lo guardaste
+fuera del teléfono**. La aplicación te muestra la fecha de tu último respaldo
+para que sepas qué tan reciente es.
+
+## Menores de edad
+
+MoneyTracker no está dirigida específicamente a menores de 13 años, pero tampoco
+supone riesgo alguno para ellos: al no recopilar ningún dato, no puede recopilar
+datos de un menor.
+
+## Tus derechos
+
+Normativas como el RGPD europeo o la CCPA de California reconocen derechos de
+acceso, rectificación, eliminación y portabilidad sobre tus datos personales. En
+MoneyTracker esos derechos se cumplen por diseño: **tú ya posees todos tus datos,
+en tu dispositivo, y solo tú puedes consultarlos, modificarlos o borrarlos.** No
+hay ninguna solicitud que dirigirnos, porque no hay nada nuestro que revisar.
+
+## Cambios en esta política
+
+Si en el futuro alguna versión de la aplicación modificara su comportamiento —por
+ejemplo, incorporando una copia de seguridad automática en la nube—, esta política
+se actualizará **antes** de publicar esa versión, y el cambio se indicará de forma
+destacada en la descripción de la actualización en Google Play.
+
+**Historial:** 6 de noviembre de 2026 — se añaden las fotos de comprobantes
+(versión 1.1), las compras a cuotas y el archivo de respaldo con contraseña
+opcional (versión 1.2). 13 de noviembre de 2026 — se añaden los préstamos y
+los recordatorios locales de pago, con los permisos de notificaciones y de aviso
+de arranque del teléfono (versión 1.6).
+
+## Contacto
+
+Para cualquier duda sobre esta política, escribe a:
+
+**didier.cruz.work@gmail.com**
+
+---
+
+*Esta política describe el comportamiento real de la versión publicada de
+MoneyTracker. Su exactitud puede verificarse de forma independiente revisando los
+permisos que la aplicación declara en Google Play.*
