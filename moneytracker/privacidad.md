@@ -7,34 +7,79 @@ lang: es
 
 **Responsable:** Didier Cruz
 **Aplicación:** MoneyTracker (`com.melo.moneytracker`)
-**Última actualización:** 13 de noviembre de 2026 (versión 1.6 de la app)
+**Última actualización:** 18 de noviembre de 2026 (versión 1.7 de la app)
 
 ---
 
 ## Resumen
 
-**MoneyTracker no recopila, transmite ni comparte ningún dato personal.**
+**Tus datos financieros nunca salen de tu teléfono.** Toda la información que
+registras —cuentas, movimientos, categorías, metas, presupuestos, compras a
+cuotas, préstamos y fotos de comprobantes— se guarda **únicamente en el
+almacenamiento privado de tu dispositivo**. No existe ningún servidor al que
+enviarla: la aplicación no tiene cuentas de usuario y no requiere registro.
 
-Toda la información que registras —cuentas, movimientos, categorías, metas,
-presupuestos, compras a cuotas, préstamos y fotos de comprobantes— se guarda **únicamente en
-el almacenamiento privado de tu dispositivo**. No existe ningún servidor al que enviarla: la aplicación no tiene
-cuentas de usuario, no requiere registro, no se conecta a internet y no incluye
-publicidad ni herramientas de analítica.
+**Desde la versión 1.7, la aplicación muestra anuncios** de Google AdMob en
+las pantallas Balance y Análisis. Para eso usa internet, y el SDK de anuncios de
+Google recopila algunos datos técnicos del dispositivo (no tus finanzas), como
+se explica abajo. Quienes ya usaban la aplicación con movimientos registrados
+antes de la versión 1.7 no ven anuncios, y en su caso la aplicación no se
+comunica con Google.
 
 ## Qué datos se recopilan
 
-Ninguno.
+**Datos financieros: ninguno.** Tus montos, cuentas, categorías, descripciones
+y fotos no se envían a nadie, tampoco a la red de anuncios. La aplicación no le
+pasa a Google palabras clave ni contenido de tus pantallas para elegir anuncios.
 
-La aplicación **no pide acceso a internet, ubicación, contactos, cámara,
-micrófono, almacenamiento externo ni identificadores del dispositivo**. Lo único
-que declara es el permiso de **notificaciones** (para los recordatorios de pago
-que tú activas) y el de **recibir el aviso de arranque del teléfono** (para que
-esos recordatorios sigan programados tras reiniciarlo). Los recordatorios son
-**locales**: se crean y se muestran en tu teléfono, sin internet, y ningún dato
-sale del dispositivo. El permiso de notificaciones se pide solo cuando tiene
-sentido y puedes negarlo; la app funciona igual. Puedes comprobarlo tú mismo en
-la sección «Permisos de la aplicación» dentro de Google Play, antes incluso de
-instalarla.
+**Datos que recopila el SDK de anuncios de Google** (Google Mobile Ads),
+automáticamente, para mostrar anuncios, medirlos (analítica) y prevenir el
+fraude:
+
+| Dato | Para qué |
+|---|---|
+| Dirección IP, de la que se puede deducir la **ubicación aproximada** del dispositivo (ciudad o región, nunca la ubicación exacta) | Elegir anuncios para tu zona y cumplir las leyes de cada país |
+| **ID de publicidad** de Android e ID de conjunto de apps | Mostrar anuncios relevantes, limitar cuántas veces ves el mismo y detectar fraude |
+| **Interacciones con los anuncios** (si se mostraron o se tocaron) y con la app (por ejemplo, que se abrió) | Medir los anuncios y pagar al desarrollador |
+| **Diagnósticos** del rendimiento de la app y del SDK | Que los anuncios funcionen bien y no gasten batería de más |
+
+Google los recibe cifrados en tránsito (TLS) y los trata según su propia
+política: [Cómo usa Google la información de los sitios o aplicaciones que
+utilizan sus servicios](https://policies.google.com/technologies/partner-sites).
+El desarrollador de MoneyTracker **no recibe esos datos**: solo ve en AdMob
+totales anónimos, como cuántos anuncios se mostraron y cuánto generaron.
+
+**Permisos que declara la aplicación:**
+
+- **Internet y estado de la red:** solo para los anuncios. Sin conexión, la
+  app funciona igual y no muestra ningún anuncio.
+- **ID de publicidad** (y los permisos de anuncios de Privacy Sandbox de
+  Android): para los anuncios, como se explica arriba.
+- **Notificaciones:** para los recordatorios de pago que tú activas. Se pide
+  solo cuando tiene sentido y puedes negarlo; la app funciona igual.
+- **Recibir el aviso de arranque del teléfono:** para que esos recordatorios
+  sigan programados tras reiniciarlo. Los recordatorios son **locales**: se
+  crean y se muestran en tu teléfono, sin internet.
+
+La aplicación **no pide acceso a tu ubicación precisa, contactos, cámara,
+micrófono ni almacenamiento externo**. Puedes comprobarlo en la sección
+«Permisos de la aplicación» dentro de Google Play.
+
+## Tus opciones sobre los anuncios
+
+- **Si vives en el Espacio Económico Europeo, el Reino Unido o Suiza**, la
+  primera vez que abras la aplicación verás el formulario de consentimiento de
+  Google. Puedes aceptar o rechazar los anuncios personalizados. Si los
+  rechazas, seguirás viendo anuncios, pero sin personalizar. Puedes cambiar tu
+  decisión cuando quieras desde el menú lateral, en **«Privacidad de
+  anuncios»**.
+- **En cualquier país** puedes restablecer o eliminar tu ID de publicidad en
+  los ajustes de Android (*Ajustes → Privacidad → Anuncios* o *Google →
+  Anuncios*, según el teléfono). Sin ID de publicidad, los anuncios no se
+  personalizan.
+- **Bloqueamos categorías sensibles** en AdMob: citas, «gane dinero rápido» y
+  juegos de casino. Revisamos además los anuncios de apuestas y criptomonedas y
+  los bloqueamos cuando aparecen.
 
 Cuando adjuntas la foto de un comprobante, la aplicación no usa la cámara
 directamente: le pide a Android que abra **tu aplicación de cámara** o **el
@@ -45,7 +90,7 @@ caso la aplicación puede ver tus demás fotos ni tus demás archivos.
 
 ## Qué datos guarda la aplicación, y dónde
 
-Los datos que tú introduces se almacenan en tres lugares, **todos privados de la
+Los datos que tú introduces se almacenan en estos lugares, **todos privados de la
 aplicación y dentro de tu propio dispositivo**:
 
 | Qué | Dónde | Contenido |
@@ -54,6 +99,7 @@ aplicación y dentro de tu propio dispositivo**:
 | Recordatorios programados | Almacenamiento privado de la app | La fecha y el texto de los próximos avisos, para volver a programarlos si reinicias el teléfono |
 | Fotos de comprobantes | Carpeta privada de la app | Las fotos que adjuntas a tus movimientos (hasta 6 por movimiento) |
 | Tu preferencia de idioma | Almacenamiento local de la app | Únicamente si elegiste español o inglés |
+| Tu decisión sobre anuncios personalizados | Almacenamiento local de la app (lo guarda el SDK de Google) | Solo si te tocó el formulario de consentimiento (Europa, Reino Unido, Suiza) |
 
 Ese almacenamiento es privado: el sistema operativo Android impide que otras
 aplicaciones accedan a él. Nadie más puede leerlo, y nosotros tampoco — no
@@ -86,14 +132,17 @@ tus fotos de comprobantes. Funciona así:
 
 ## Con quién se comparten tus datos
 
-Con nadie. No hay terceros involucrados. La única forma de que tus datos salgan
-de la aplicación es que tú compartas un archivo de respaldo, como se explica
-arriba.
+**Tus datos financieros, con nadie.** La única forma de que salgan de la
+aplicación es que tú compartas un archivo de respaldo, como se explica arriba.
 
-MoneyTracker no incorpora servicios de analítica, informes de errores,
-publicidad, redes sociales ni ninguna otra biblioteca externa que recopile
-información. No se realiza ninguna transferencia internacional de datos, porque
-no se realiza ninguna transferencia en absoluto.
+**Los datos técnicos de la sección anterior los recibe Google** (Google LLC),
+como proveedor de anuncios, y pueden procesarse en servidores fuera de tu país.
+Google puede compartirlos con los anunciantes y redes de anuncios con los que
+trabaja, según su política y, en Europa, según lo que aceptes en el formulario
+de consentimiento.
+
+MoneyTracker no incorpora otros servicios de analítica, informes de errores ni
+redes sociales.
 
 ## Cuánto tiempo se conservan tus datos, y cómo eliminarlos
 
@@ -109,6 +158,11 @@ remota en nuestro poder, tienes control completo sobre ellos:
 Cualquiera de las tres opciones es definitiva e irreversible. **No conservamos
 ninguna copia**, así que no hay nada que solicitarnos para que lo borremos.
 
+Los datos técnicos que recibe Google por los anuncios los conserva y elimina
+Google según su política. Puedes restablecer o eliminar tu ID de publicidad en
+los ajustes de Android, y gestionar tus datos con Google en
+[myaccount.google.com](https://myaccount.google.com).
+
 Los **archivos de respaldo** que hayas creado no forman parte de la aplicación:
 están donde tú los guardaste o enviaste, y desinstalar la aplicación **no los
 borra**. Si quieres eliminarlos, hazlo desde esa carpeta o ese servicio.
@@ -123,22 +177,27 @@ para que sepas qué tan reciente es.
 
 ## Menores de edad
 
-MoneyTracker no está dirigida específicamente a menores de 13 años, pero tampoco
-supone riesgo alguno para ellos: al no recopilar ningún dato, no puede recopilar
-datos de un menor.
+MoneyTracker no está dirigida a menores de 13 años. No recopilamos a sabiendas
+datos de menores, y los anuncios no están pensados para ellos.
 
 ## Tus derechos
 
 Normativas como el RGPD europeo o la CCPA de California reconocen derechos de
 acceso, rectificación, eliminación y portabilidad sobre tus datos personales. En
-MoneyTracker esos derechos se cumplen por diseño: **tú ya posees todos tus datos,
-en tu dispositivo, y solo tú puedes consultarlos, modificarlos o borrarlos.** No
-hay ninguna solicitud que dirigirnos, porque no hay nada nuestro que revisar.
+MoneyTracker esos derechos se cumplen por diseño para tus datos financieros: **tú
+ya posees todos tus datos, en tu dispositivo, y solo tú puedes consultarlos,
+modificarlos o borrarlos.**
+
+Para los datos de anuncios, el responsable es Google: puedes ejercer tus
+derechos con Google, retirar o cambiar tu consentimiento desde «Privacidad de
+anuncios» (en Europa) y restablecer tu ID de publicidad en los ajustes de
+Android. Si tienes dudas, escríbenos y te orientamos.
 
 ## Cambios en esta política
 
 Si en el futuro alguna versión de la aplicación modificara su comportamiento —por
-ejemplo, incorporando una copia de seguridad automática en la nube—, esta política
+ejemplo, incorporando una copia de seguridad automática en la nube o una nueva
+red de anuncios—, esta política
 se actualizará **antes** de publicar esa versión, y el cambio se indicará de forma
 destacada en la descripción de la actualización en Google Play.
 
@@ -146,7 +205,9 @@ destacada en la descripción de la actualización en Google Play.
 (versión 1.1), las compras a cuotas y el archivo de respaldo con contraseña
 opcional (versión 1.2). 13 de noviembre de 2026 — se añaden los préstamos y
 los recordatorios locales de pago, con los permisos de notificaciones y de aviso
-de arranque del teléfono (versión 1.6).
+de arranque del teléfono (versión 1.6). 18 de noviembre de 2026 — la aplicación
+muestra anuncios de Google AdMob y, solo para ellos, usa internet y el ID de
+publicidad; tus datos financieros siguen sin salir del teléfono (versión 1.7).
 
 ## Contacto
 
@@ -157,5 +218,5 @@ Para cualquier duda sobre esta política, escribe a:
 ---
 
 *Esta política describe el comportamiento real de la versión publicada de
-MoneyTracker. Su exactitud puede verificarse de forma independiente revisando los
-permisos que la aplicación declara en Google Play.*
+MoneyTracker. Los permisos que la aplicación declara pueden revisarse en Google
+Play.*
