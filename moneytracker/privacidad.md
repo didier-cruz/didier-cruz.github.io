@@ -7,7 +7,7 @@ lang: es
 
 **Responsable:** Didier Cruz
 **Aplicación:** MoneyTracker (`com.melo.moneytracker`)
-**Última actualización:** 18 de noviembre de 2026 (versión 1.7 de la app)
+**Última actualización:** 22 de noviembre de 2026 (versión 1.9 de la app)
 
 ---
 
@@ -25,6 +25,13 @@ Google recopila algunos datos técnicos del dispositivo (no tus finanzas), como
 se explica abajo. Quienes ya usaban la aplicación con movimientos registrados
 antes de la versión 1.7 no ven anuncios, y en su caso la aplicación no se
 comunica con Google.
+
+**Desde la versión 1.9 puedes escanear un ticket o dictar un movimiento.** Las
+dos funciones son opcionales y procesan la imagen y la voz **dentro de tu
+teléfono**: la foto del ticket, el audio y el texto que se reconoce no se envían
+a nadie. Para funcionar, el escaneo usa componentes de Google Play services que
+envían a Google métricas técnicas de uso, y el dictado descarga una sola vez un
+modelo de reconocimiento de voz desde Hugging Face. Los detalles están abajo.
 
 ## Qué datos se recopilan
 
@@ -49,6 +56,24 @@ utilizan sus servicios](https://policies.google.com/technologies/partner-sites).
 El desarrollador de MoneyTracker **no recibe esos datos**: solo ve en AdMob
 totales anónimos, como cuántos anuncios se mostraron y cuánto generaron.
 
+**Datos técnicos del escaneo de tickets (Google ML Kit).** Cuando escaneas un
+ticket, la cámara, el recorte del documento y la lectura del texto los hacen
+componentes de Google Play services (ML Kit) **dentro de tu teléfono**. La foto
+y el texto leído **no se envían a Google ni a nadie**. ML Kit sí envía a Google
+métricas de rendimiento y uso de esas funciones: tiempos de respuesta, el
+nombre y la versión de la app, códigos de error y la configuración usada. Viajan
+cifradas, Google las usa para medir, depurar y mejorar ML Kit y no las comparte
+con terceros
+([divulgación de datos de ML Kit](https://developers.google.com/ml-kit/android-data-disclosure)).
+
+**Descarga del modelo de dictado (Hugging Face).** La primera vez que usas
+«Dictar», la aplicación te avisa del tamaño (unos 57 MB) y, si aceptas, descarga
+el modelo de reconocimiento de voz Whisper desde **huggingface.co**. Como en
+cualquier descarga, Hugging Face ve tu dirección IP y datos técnicos de la
+petición, según su [política de privacidad](https://huggingface.co/privacy).
+La descarga no lleva ningún dato tuyo, y después el dictado funciona sin
+internet.
+
 **Permisos que declara la aplicación:**
 
 - **Internet y estado de la red:** solo para los anuncios. Sin conexión, la
@@ -60,9 +85,16 @@ totales anónimos, como cuántos anuncios se mostraron y cuánto generaron.
 - **Recibir el aviso de arranque del teléfono:** para que esos recordatorios
   sigan programados tras reiniciarlo. Los recordatorios son **locales**: se
   crean y se muestran en tu teléfono, sin internet.
+- **Micrófono:** solo para «Dictar». Se pide la primera vez que tocas «Dictar»,
+  después de explicarte para qué, y puedes negarlo; la app funciona igual. El
+  audio se guarda unos segundos en un archivo temporal privado, se convierte en
+  texto en tu teléfono y **se borra** al terminar. No se graba de forma
+  permanente ni se envía a ningún sitio.
 
-La aplicación **no pide acceso a tu ubicación precisa, contactos, cámara,
-micrófono ni almacenamiento externo**. Puedes comprobarlo en la sección
+La aplicación **no pide acceso a tu ubicación precisa, contactos, cámara ni
+almacenamiento externo**. El escaneo de tickets no necesita el permiso de
+cámara: la abre el escáner de documentos de Google Play services y la app solo
+recibe la imagen escaneada. Puedes comprobar los permisos en la sección
 «Permisos de la aplicación» dentro de Google Play.
 
 ## Tus opciones sobre los anuncios
@@ -84,7 +116,9 @@ micrófono ni almacenamiento externo**. Puedes comprobarlo en la sección
 Cuando adjuntas la foto de un comprobante, la aplicación no usa la cámara
 directamente: le pide a Android que abra **tu aplicación de cámara** o **el
 selector de fotos del sistema**, y solo recibe la foto que tú tomas o eliges.
-Lo mismo ocurre con el respaldo: el archivo se guarda o se abre a través del
+Al escanear un ticket, la aplicación solo recibe la imagen ya escaneada; la
+guarda como comprobante del movimiento si tú lo guardas. Lo mismo ocurre con el
+respaldo: el archivo se guarda o se abre a través del
 **selector de archivos de Android**, en la ubicación que tú escoges. En ningún
 caso la aplicación puede ver tus demás fotos ni tus demás archivos.
 
@@ -95,9 +129,11 @@ aplicación y dentro de tu propio dispositivo**:
 
 | Qué | Dónde | Contenido |
 |---|---|---|
-| Tus finanzas | Base de datos local `moneytracker.db` | Cuentas, saldos iniciales, movimientos, categorías, metas, presupuestos, compras a cuotas, préstamos (tasa, cuotas, seguros y cargos), la fecha de tu último respaldo y tus ajustes de recordatorios (hora y tipos de aviso) |
+| Tus finanzas | Base de datos local `moneytracker.db` | Cuentas, saldos iniciales, movimientos, categorías, metas, presupuestos, compras a cuotas, préstamos (tasa, cuotas, seguros y cargos), la fecha de tu último respaldo, tus ajustes de recordatorios (hora y tipos de aviso, incluido el recordatorio de respaldo) y si ya completaste la bienvenida |
 | Recordatorios programados | Almacenamiento privado de la app | La fecha y el texto de los próximos avisos, para volver a programarlos si reinicias el teléfono |
-| Fotos de comprobantes | Carpeta privada de la app | Las fotos que adjuntas a tus movimientos (hasta 6 por movimiento) |
+| Fotos de comprobantes | Carpeta privada de la app | Las fotos que adjuntas a tus movimientos (hasta 6 por movimiento), incluidas las de tickets escaneados |
+| Modelo de dictado | Carpeta privada de la app | El modelo de reconocimiento de voz (unos 57 MB), solo si usaste «Dictar». No contiene datos tuyos; se borra al borrar los datos de la app o desinstalarla |
+| Archivos temporales | Caché privada de la app | La grabación de un dictado (se borra al convertirla en texto) y la copia de trabajo de un escaneo (se borra al volver a escanear si tiene más de 24 horas, al borrar los datos de la app o cuando Android limpia la caché) |
 | Tu preferencia de idioma | Almacenamiento local de la app | Únicamente si elegiste español o inglés |
 | Tu decisión sobre anuncios personalizados | Almacenamiento local de la app (lo guarda el SDK de Google) | Solo si te tocó el formulario de consentimiento (Europa, Reino Unido, Suiza) |
 
@@ -141,7 +177,12 @@ Google puede compartirlos con los anunciantes y redes de anuncios con los que
 trabaja, según su política y, en Europa, según lo que aceptes en el formulario
 de consentimiento.
 
-MoneyTracker no incorpora otros servicios de analítica, informes de errores ni
+**Las métricas técnicas de ML Kit** las recibe Google solo si usas el escaneo de
+tickets, y **la descarga del modelo de dictado** la atiende Hugging Face solo si
+usas «Dictar», como se explica arriba. Ninguna de las dos lleva tus datos
+financieros, tus fotos ni tu voz.
+
+Fuera de eso, MoneyTracker no incorpora otros servicios de analítica, informes de errores ni
 redes sociales.
 
 ## Cuánto tiempo se conservan tus datos, y cómo eliminarlos
@@ -208,6 +249,10 @@ los recordatorios locales de pago, con los permisos de notificaciones y de aviso
 de arranque del teléfono (versión 1.6). 18 de noviembre de 2026 — la aplicación
 muestra anuncios de Google AdMob y, solo para ellos, usa internet y el ID de
 publicidad; tus datos financieros siguen sin salir del teléfono (versión 1.7).
+22 de noviembre de 2026 — se añaden el escaneo de tickets y el dictado por voz,
+procesados en el teléfono, con el permiso de micrófono, las métricas técnicas de
+Google ML Kit y la descarga del modelo de dictado desde Hugging Face; y el
+recordatorio local de respaldo (versión 1.9).
 
 ## Contacto
 

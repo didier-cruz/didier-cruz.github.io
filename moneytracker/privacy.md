@@ -7,7 +7,7 @@ lang: en
 
 **Controller:** Didier Cruz
 **Application:** MoneyTracker (`com.melo.moneytracker`)
-**Last updated:** 18 November 2026 (app version 1.7)
+**Last updated:** 22 November 2026 (app version 1.9)
 
 ---
 
@@ -23,6 +23,13 @@ screens. To do so it uses the internet, and Google's ads SDK collects some
 technical device data (not your finances), as explained below. People who were
 already using the app with recorded movements before version 1.7 see no ads, and
 for them the app does not contact Google.
+
+**Since version 1.9 you can scan a receipt or dictate a movement.** Both features
+are optional and process the image and your voice **on your phone**: the receipt
+photo, the audio and the recognised text are not sent to anyone. To work, scanning
+uses Google Play services components that send Google technical usage metrics, and
+dictation downloads a speech-recognition model once from Hugging Face. Details
+below.
 
 ## What data we collect
 
@@ -46,6 +53,22 @@ services](https://policies.google.com/technologies/partner-sites). MoneyTracker'
 developer **does not receive this data**: AdMob only shows anonymous totals, such
 as how many ads were shown and how much they earned.
 
+**Technical data from receipt scanning (Google ML Kit).** When you scan a receipt,
+the camera, document cropping and text reading are handled by Google Play services
+components (ML Kit) **on your phone**. The photo and the text read from it **are
+not sent to Google or anyone else**. ML Kit does send Google performance and usage
+metrics for those features: response times, the app's package name and version,
+error codes and the configuration used. They are encrypted in transit, Google uses
+them to measure, debug and improve ML Kit, and does not share them with third
+parties ([ML Kit data disclosure](https://developers.google.com/ml-kit/android-data-disclosure)).
+
+**Dictation model download (Hugging Face).** The first time you use "Dictate", the
+app tells you the size (about 57 MB) and, if you agree, downloads the Whisper
+speech-recognition model from **huggingface.co**. As with any download, Hugging
+Face sees your IP address and technical request data, under its
+[privacy policy](https://huggingface.co/privacy). The download carries none of
+your data, and afterwards dictation works offline.
+
 **Permissions the app declares:**
 
 - **Internet and network state:** for ads only. Offline, the app works the same
@@ -56,9 +79,16 @@ as how many ads were shown and how much they earned.
   makes sense, and you can refuse it; the app works the same.
 - **Phone-startup notice:** so those reminders stay scheduled after a reboot.
   Reminders are **local**: created and shown on your phone, without internet.
+- **Microphone:** for "Dictate" only. It is requested the first time you tap
+  "Dictate", after explaining why, and you can refuse it; the app works the same.
+  The audio is kept for a few seconds in a private temporary file, turned into
+  text on your phone and **deleted** when done. It is never stored permanently or
+  sent anywhere.
 
-The app **does not ask for precise location, contacts, camera, microphone or
-external storage**. You can check this under "App permissions" on Google Play.
+The app **does not ask for precise location, contacts, camera or external
+storage**. Receipt scanning does not need the camera permission: Google Play
+services' document scanner opens the camera and the app only receives the scanned
+image. You can check the permissions under "App permissions" on Google Play.
 
 ## Your choices about ads
 
@@ -76,7 +106,8 @@ external storage**. You can check this under "App permissions" on Google Play.
 
 When you attach a receipt photo, the app does not use the camera directly: it
 asks Android to open **your camera app** or **the system photo picker**, and
-receives only the photo you take or choose. The backup works the same way: the
+receives only the photo you take or choose. When you scan a receipt, the app only receives the scanned image; it is kept as the
+movement's receipt if you save the movement. The backup works the same way: the
 file is saved or opened through **Android's file picker**, in the location you
 choose. At no point can the app see your other photos or files.
 
@@ -87,9 +118,11 @@ own device**:
 
 | What | Where | Contents |
 |---|---|---|
-| Your finances | Local database `moneytracker.db` | Accounts, starting balances, movements, categories, goals, budgets, installment purchases, loans (rate, installments, insurance and fees), the date of your last backup and your reminder settings (time and reminder types) |
+| Your finances | Local database `moneytracker.db` | Accounts, starting balances, movements, categories, goals, budgets, installment purchases, loans (rate, installments, insurance and fees), the date of your last backup, your reminder settings (time and reminder types, including the backup reminder) and whether you completed the welcome |
 | Scheduled reminders | The app's private storage | The date and text of upcoming reminders, so they can be re-armed if you restart your phone |
-| Receipt photos | The app's private folder | Photos you attach to your movements (up to 6 per movement) |
+| Receipt photos | The app's private folder | Photos you attach to your movements (up to 6 per movement), including scanned receipts |
+| Dictation model | The app's private folder | The speech-recognition model (about 57 MB), only if you used "Dictate". It holds none of your data; it is deleted when you clear the app's data or uninstall it |
+| Temporary files | The app's private cache | A dictation recording (deleted once turned into text) and a scan's working copy (deleted on the next scan once older than 24 hours, when you clear the app's data, or when Android clears the cache) |
 | Your language choice | Local app storage | Only whether you picked Spanish or English |
 | Your choice about personalised ads | Local app storage (kept by Google's SDK) | Only if you were shown the consent form (Europe, UK, Switzerland) |
 
@@ -129,7 +162,12 @@ the ad provider, and may be processed on servers outside your country. Google ma
 share it with the advertisers and ad networks it works with, under its policy
 and, in Europe, according to what you accept in the consent form.
 
-MoneyTracker includes no other analytics, crash reporting or social media
+**ML Kit's technical metrics** reach Google only if you use receipt scanning, and
+**the dictation model download** is served by Hugging Face only if you use
+"Dictate", as explained above. Neither carries your financial data, your photos
+or your voice.
+
+Beyond that, MoneyTracker includes no other analytics, crash reporting or social media
 services.
 
 ## How long your data is kept, and how to erase it
@@ -190,7 +228,10 @@ purchases and the backup file with optional password (version 1.2). 13 November
 2026 — added loans and local payment reminders, with the notifications and
 phone-startup permissions (version 1.6). 18 November 2026 — the app shows Google
 AdMob ads and, for them only, uses the internet and the advertising ID; your
-financial data still never leaves the phone (version 1.7).
+financial data still never leaves the phone (version 1.7). 22 November 2026 —
+added receipt scanning and voice dictation, processed on the phone, with the
+microphone permission, Google ML Kit's technical metrics and the dictation model
+download from Hugging Face; and the local backup reminder (version 1.9).
 
 ## Contact
 
