@@ -7,7 +7,7 @@ lang: es
 
 **Responsable:** Didier Cruz
 **Aplicación:** MoneyTracker (`com.melo.moneytracker`)
-**Última actualización:** 22 de noviembre de 2026 (versión 1.9 de la app)
+**Última actualización:** 23 de noviembre de 2026
 
 ---
 
@@ -168,8 +168,9 @@ tus fotos de comprobantes. Funciona así:
 
 ## Con quién se comparten tus datos
 
-**Tus datos financieros, con nadie.** La única forma de que salgan de la
-aplicación es que tú compartas un archivo de respaldo, como se explica arriba.
+**Tus datos financieros, con nadie.** Solo salen de la aplicación si tú lo
+decides: al compartir un archivo de respaldo, como se explica arriba, o si
+adjuntas a un reporte de problema una captura que los muestre.
 
 **Los datos técnicos de la sección anterior los recibe Google** (Google LLC),
 como proveedor de anuncios, y pueden procesarse en servidores fuera de tu país.
@@ -182,8 +183,37 @@ tickets, y **la descarga del modelo de dictado** la atiende Hugging Face solo si
 usas «Dictar», como se explica arriba. Ninguna de las dos lleva tus datos
 financieros, tus fotos ni tu voz.
 
-Fuera de eso, MoneyTracker no incorpora otros servicios de analítica, informes de errores ni
-redes sociales.
+**Los reportes de problemas** los recibe el desarrollador a través de Google
+Forms, solo si tú envías uno (ver la sección siguiente).
+
+Fuera de eso, MoneyTracker no incorpora otros servicios de analítica, informes
+automáticos de errores ni redes sociales.
+
+## Reportar un problema
+
+En *Ajustes → Acerca de → Reportar un problema* puedes avisarnos de un fallo.
+Es opcional y funciona así:
+
+- **La aplicación solo abre un formulario de Google Forms en tu navegador.** No
+  envía nada por su cuenta: tú escribes el reporte y decides si lo envías.
+- **La aplicación prellena cinco datos técnicos** para ayudarnos a reproducir el
+  fallo: la versión de la app, el modelo del teléfono, la versión de Android, el
+  tema (claro u oscuro) y el idioma. Los ves en el formulario antes de enviarlo
+  y puedes cambiarlos o borrarlos. **Nunca incluye tus datos financieros.**
+- **El formulario te pide iniciar sesión con tu cuenta de Google**, porque
+  permite adjuntar capturas de pantalla o videos como evidencia. Al subir un
+  archivo, Google registra el nombre y la foto de tu cuenta de Google, y el
+  desarrollador puede verlos junto al archivo.
+- **Los adjuntos son opcionales y se guardan en el Google Drive del
+  desarrollador.** Una captura de la app puede mostrar montos, cuentas o
+  movimientos: si no quieres compartirlos, tápalos antes de subirla. Lo que
+  adjuntes solo se usa para resolver tu reporte.
+- **Tu correo es opcional:** déjalo solo si quieres que te respondamos.
+
+Recibimos únicamente lo que envías en el formulario. Lo usamos para encontrar y
+arreglar el problema y lo borramos cuando ya no hace falta; si quieres que lo
+borremos antes, escríbenos al correo de contacto. Google procesa el formulario
+según su [política de privacidad](https://policies.google.com/privacy).
 
 ## Cuánto tiempo se conservan tus datos, y cómo eliminarlos
 
@@ -229,6 +259,10 @@ MoneyTracker esos derechos se cumplen por diseño para tus datos financieros: **
 ya posees todos tus datos, en tu dispositivo, y solo tú puedes consultarlos,
 modificarlos o borrarlos.**
 
+Si nos enviaste un reporte de problema, puedes pedirnos que te digamos qué
+recibimos o que lo borremos, junto con sus adjuntos, escribiendo al correo de
+contacto.
+
 Para los datos de anuncios, el responsable es Google: puedes ejercer tus
 derechos con Google, retirar o cambiar tu consentimiento desde «Privacidad de
 anuncios» (en Europa) y restablecer tu ID de publicidad en los ajustes de
@@ -252,7 +286,10 @@ publicidad; tus datos financieros siguen sin salir del teléfono (versión 1.7).
 22 de noviembre de 2026 — se añaden el escaneo de tickets y el dictado por voz,
 procesados en el teléfono, con el permiso de micrófono, las métricas técnicas de
 Google ML Kit y la descarga del modelo de dictado desde Hugging Face; y el
-recordatorio local de respaldo (versión 1.9).
+recordatorio local de respaldo (versión 1.9). 23 de noviembre de 2026 — se
+añade «Reportar un problema»: abre un formulario de Google Forms prellenado con
+datos técnicos, que pide iniciar sesión con Google y permite adjuntar capturas o
+videos.
 
 ## Contacto
 

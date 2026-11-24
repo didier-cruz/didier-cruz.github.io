@@ -7,7 +7,7 @@ lang: en
 
 **Controller:** Didier Cruz
 **Application:** MoneyTracker (`com.melo.moneytracker`)
-**Last updated:** 22 November 2026 (app version 1.9)
+**Last updated:** 23 November 2026
 
 ---
 
@@ -154,8 +154,9 @@ receipt photos. It works like this:
 
 ## Who we share your data with
 
-**Your financial data: no one.** The only way it leaves the app is if you share a
-backup file yourself, as described above.
+**Your financial data: no one.** It only leaves the app if you choose to: by
+sharing a backup file, as described above, or by attaching a screenshot that
+shows it to a problem report.
 
 **The technical data in the section above is received by Google** (Google LLC) as
 the ad provider, and may be processed on servers outside your country. Google may
@@ -167,8 +168,37 @@ and, in Europe, according to what you accept in the consent form.
 "Dictate", as explained above. Neither carries your financial data, your photos
 or your voice.
 
-Beyond that, MoneyTracker includes no other analytics, crash reporting or social media
-services.
+**Problem reports** reach the developer through Google Forms, only if you send
+one (see the next section).
+
+Beyond that, MoneyTracker includes no other analytics, automatic crash
+reporting or social media services.
+
+## Reporting a problem
+
+In *Settings → About → Report a problem* you can tell us about a bug. It is
+optional and works like this:
+
+- **The app only opens a Google Forms form in your browser.** It sends nothing
+  on its own: you write the report and decide whether to send it.
+- **The app pre-fills five technical details** to help us reproduce the bug:
+  the app version, the phone model, the Android version, the theme (light or
+  dark) and the language. You see them in the form before sending and can
+  change or delete them. **It never includes your financial data.**
+- **The form asks you to sign in with your Google account**, because it lets you
+  attach screenshots or videos as evidence. When you upload a file, Google
+  records your Google account's name and photo, and the developer can see them
+  next to the file.
+- **Attachments are optional and are stored in the developer's Google Drive.**
+  A screenshot of the app may show amounts, accounts or transactions: if you
+  don't want to share them, cover them before uploading. Anything you attach is
+  used only to resolve your report.
+- **Your email is optional:** leave it only if you want us to reply.
+
+We receive only what you send in the form. We use it to find and fix the
+problem and delete it once it is no longer needed; if you want it deleted
+sooner, write to the contact email. Google processes the form under its
+[privacy policy](https://policies.google.com/privacy).
 
 ## How long your data is kept, and how to erase it
 
@@ -211,6 +241,9 @@ MoneyTracker those rights are satisfied by design for your financial data: **you
 already hold all of it, on your device, and only you can view, change or delete
 it.**
 
+If you sent us a problem report, you can ask us what we received or to delete
+it, along with its attachments, by writing to the contact email.
+
 For ad data, Google is responsible: you can exercise your rights with Google,
 withdraw or change your consent from "Ad privacy" (in Europe) and reset your
 advertising ID in Android settings. If in doubt, write to us and we will point
@@ -231,7 +264,10 @@ AdMob ads and, for them only, uses the internet and the advertising ID; your
 financial data still never leaves the phone (version 1.7). 22 November 2026 —
 added receipt scanning and voice dictation, processed on the phone, with the
 microphone permission, Google ML Kit's technical metrics and the dictation model
-download from Hugging Face; and the local backup reminder (version 1.9).
+download from Hugging Face; and the local backup reminder (version 1.9). 23 November 2026 — added
+"Report a problem": it opens a Google Forms form pre-filled with technical
+details, which asks you to sign in with Google and lets you attach screenshots
+or videos.
 
 ## Contact
 
