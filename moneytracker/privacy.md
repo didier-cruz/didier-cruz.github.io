@@ -7,7 +7,7 @@ lang: en
 
 **Controller:** Didier Cruz
 **Application:** MoneyTracker (`com.melo.moneytracker`)
-**Last updated:** 23 November 2026
+**Last updated:** 23 November 2026 (app version 1.10)
 
 ---
 
@@ -267,7 +267,7 @@ microphone permission, Google ML Kit's technical metrics and the dictation model
 download from Hugging Face; and the local backup reminder (version 1.9). 23 November 2026 — added
 "Report a problem": it opens a Google Forms form pre-filled with technical
 details, which asks you to sign in with Google and lets you attach screenshots
-or videos.
+or videos (version 1.10).
 
 ## Contact
 

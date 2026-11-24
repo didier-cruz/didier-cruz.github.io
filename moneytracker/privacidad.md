@@ -7,7 +7,7 @@ lang: es
 
 **Responsable:** Didier Cruz
 **Aplicación:** MoneyTracker (`com.melo.moneytracker`)
-**Última actualización:** 23 de noviembre de 2026
+**Última actualización:** 23 de noviembre de 2026 (versión 1.10 de la app)
 
 ---
 
@@ -289,7 +289,7 @@ Google ML Kit y la descarga del modelo de dictado desde Hugging Face; y el
 recordatorio local de respaldo (versión 1.9). 23 de noviembre de 2026 — se
 añade «Reportar un problema»: abre un formulario de Google Forms prellenado con
 datos técnicos, que pide iniciar sesión con Google y permite adjuntar capturas o
-videos.
+videos (versión 1.10).
 
 ## Contacto
 
